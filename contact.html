@@ -1,0 +1,1201 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact JoyCakeys - Custom Cakes Kampala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff7bac;
+            --primary-light: #ffb8d9;
+            --secondary: #6a5acd;
+            --accent: #ffd166;
+            --dark: #333333;
+            --light: #fff9fb;
+            --gray: #f5f5f5;
+            --border-radius: 12px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 30px;
+        }
+
+        .main-nav li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .main-nav li a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation - Pure CSS */
+        #mobile-menu-toggle {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1001;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+            display: block;
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-content {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links a {
+            text-decoration: none;
+            color: var(--dark);
+            padding: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding-left: 20px;
+        }
+
+        .mobile-menu-links a i {
+            width: 25px;
+            text-align: center;
+        }
+
+        .mobile-menu-contact {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+        }
+
+        .mobile-menu-contact h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .mobile-menu-contact i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        /* Contact Header */
+        .contact-header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-header h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .contact-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        /* Contact Buttons Section */
+        .contact-buttons-section {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .contact-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-button-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-button-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-button-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-button-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .contact-button-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .contact-button-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 250px;
+            justify-content: center;
+        }
+
+        .btn-call {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-email {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-call:hover {
+            background: #ff5a9c;
+        }
+
+        .btn-email:hover {
+            background: #5549d1;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+        }
+
+        /* Contact Information Section */
+        .contact-info-section {
+            padding: 60px 0;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            margin-bottom: 60px;
+        }
+
+        .contact-info-section h2 {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 50px;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .contact-info-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .contact-info-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .contact-info-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-detail {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* Business Hours */
+        .business-hours {
+            padding: 40px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .business-hours h2 {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .day-card {
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .day-card:hover {
+            background: var(--primary-light);
+            transform: translateY(-5px);
+        }
+
+        .day-card.current-day {
+            background: var(--primary);
+            color: white;
+        }
+
+        .day-card.current-day .day-name {
+            color: white;
+        }
+
+        .day-card.current-day .hours {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .day-name {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .hours {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .hours-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-style: italic;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background: white;
+            border-radius: var(--border-radius);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .faq-item {
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-item h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+
+        .faq-item h3 i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Response Time Card */
+        .response-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            margin: 60px auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
+        }
+
+        .response-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .response-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .response-time {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .footer-column h3:after {
+            background: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-header h1 {
+                font-size: 3rem;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .contact-buttons-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .contact-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .contact-header {
+                padding: 60px 0;
+            }
+            
+            .contact-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-header p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-button-card {
+                padding: 30px 20px;
+            }
+            
+            .response-card {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-content {
+                width: 90%;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-btn {
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden checkbox for mobile menu -->
+    <input type="checkbox" id="mobile-menu-toggle" style="display: none;">
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <label for="mobile-menu-toggle" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Content -->
+    <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            <label for="mobile-menu-toggle" class="mobile-close-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+        
+        <div class="mobile-menu-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+            <a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+           
+            
+        </div>
+        
+        <div class="mobile-menu-contact">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0741495007</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 8AM - 7PM</p>
+        </div>
+    </div>
+
+    <!-- Contact Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Contact JoyCakeys</h1>
+            <p>Get in touch with us for delicious custom cakes! We're here to make your celebrations sweeter.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <!-- Contact Buttons Section -->
+            <div class="contact-buttons-section">
+                <h2>Quick Contact Options</h2>
+                <p>Choose your preferred way to reach us. We're always happy to help!</p>
+                
+                <div class="contact-buttons-grid">
+                    <!-- Call Us Button -->
+                    <div class="contact-button-card">
+                        <div class="contact-button-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our cake specialists for immediate assistance and order placement.</p>
+                        <a href="tel:+256741495007" class="contact-btn btn-call">
+                            <i class="fas fa-phone"></i> Call Now: 0741495007
+                        </a>
+                    </div>
+                    
+                    <!-- Email Us Button -->
+                    <div class="contact-button-card">
+                        <div class="contact-button-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Send detailed inquiries, photos, or design ideas. Perfect for custom orders with specifications.</p>
+                        <a href="mailto:Joycakeys@gmail.com" class="contact-btn btn-email">
+                            <i class="fas fa-envelope"></i> Email Us
+                        </a>
+                    </div>
+                    
+                    <!-- WhatsApp Button -->
+                    <div class="contact-button-card">
+                        <div class="contact-button-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Chat with us, send cake design photos, and get quick responses. Our favorite way to communicate!</p>
+                        <a href="https://wa.me/256741495007?text=Hi%20JoyCakeys!%20I'm%20interested%20in%20ordering%20a%20cake.%20Can%20you%20please%20help%20me?" class="contact-btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Information Section -->
+            <div class="contact-info-section">
+                <h2>Our Contact Information</h2>
+                
+                <div class="contact-info-grid">
+                    <!-- Phone -->
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone Number</h3>
+                        <p>Call us for orders, inquiries, or assistance</p>
+                        <span class="contact-detail">0741495007</span>
+                        <p><small>Available during business hours</small></p>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Address</h3>
+                        <p>Send us your detailed cake requests and questions</p>
+                        <span class="contact-detail">Joycakeys@gmail.com</span>
+                        <p><small>We respond within 24 hours</small></p>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Quick chat, photo sharing, and instant responses</p>
+                        <span class="contact-detail">0741495007</span>
+                        <p><small>Best for design discussions</small></p>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Bakery Location</h3>
+                        <p>Visit our bakery or pick up your orders</p>
+                        <span class="contact-detail">Kirinya, Kampala</span>
+                        <p><small>Uganda</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Hours -->
+            <div class="business-hours">
+                <h2>Business Hours</h2>
+                
+                <div class="hours-grid" id="hoursGrid">
+                    <!-- Days will be populated by JavaScript -->
+                </div>
+                
+                <div class="hours-note">
+                    <p><strong>Note:</strong> For custom cake orders, we recommend contacting us at least 3 Days in advance. Sunday hours may vary for special orders.</p>
+                </div>
+            </div>
+            
+            <!-- Response Time Card -->
+            <div class="response-card">
+                <h3><i class="fas fa-clock"></i> Quick Response Guarantee</h3>
+                <p>We understand that planning events can be time-sensitive. That's why we promise quick responses to all inquiries.</p>
+                <p><strong>Phone/WhatsApp:</strong> Usually within 1 hour during business hours</p>
+                <p><strong>Email:</strong> Within 24 hours maximum</p>
+                <div class="response-time">We're Here to Help!</div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3><i class="fas fa-question-circle"></i> How far in advance should I order?</h3>
+                        <p>We recommend ordering custom cakes at least 3 Days in advance. For wedding cakes or large orders, please contact us at least 2 weeks ahead.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-truck"></i> Do you offer delivery?</h3>
+                        <p>Yes! We offer delivery throughout Kampala. Delivery fees vary by zone. Free delivery within Kirinya. Check our Location page for details.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-credit-card"></i> What payment methods do you accept?</h3>
+                        <p>We accept cash,and mobile money (MTN, Airtel). For deliveries, payment can be made on delivery or in advance.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-birthday-cake"></i> Can I customize my cake design?</h3>
+                        <p>Absolutely! We specialize in custom cakes. Send us your design ideas, photos, or themes via WhatsApp or email and we'll create a unique cake just for you.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3><i class="fas fa-calendar-alt"></i> What if I need to cancel my order?</h3>
+                        <p>Customers may cancel their order before the scheduled delivery date. However, all payments made are non-refundable.
+.</p>
+                    </div>
+                    
+                                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p>Have more questions? <a href="paper3.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Visit our full FAQ page</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JoyCakeys</h3>
+                    <p>Creating beautiful, delicious custom cakes for all your special occasions since 2015.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="location.html">Location</a>
+                    <a href="contact.html">Contact Us</a>
+             </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+           
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0741495007</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kirinya, Kampala, Uganda</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 JoyCakeys. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.checked = false;
+                });
+            });
+            
+            // Business Hours with current day highlighting
+            const businessHours = {
+                monday: "8:00 AM - 7:00 PM",
+                tuesday: "8:00 AM - 7:00 PM",
+                wednesday: "8:00 AM - 7:00 PM",
+                thursday: "8:00 AM - 7:00 PM",
+                friday: "8:00 AM - 7:00 PM",
+                saturday: "8:00 AM - 7:00 PM",
+                sunday: "closed"
+            };
+            
+            const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+            
+            const hoursGrid = document.getElementById('hoursGrid');
+            if (hoursGrid) {
+                // Create day cards
+                Object.keys(businessHours).forEach((day, index) => {
+                    const dayCard = document.createElement('div');
+                    dayCard.className = 'day-card';
+                    
+                    // Convert day index to match our businessHours keys
+                    // Our businessHours keys start with monday (index 1 in JS Date)
+                    let dayIndex;
+                    switch(day) {
+                        case 'sunday': dayIndex = 0; break;
+                        case 'monday': dayIndex = 1; break;
+                        case 'tuesday': dayIndex = 2; break;
+                        case 'wednesday': dayIndex = 3; break;
+                        case 'thursday': dayIndex = 4; break;
+                        case 'friday': dayIndex = 5; break;
+                        case 'saturday': dayIndex = 6; break;
+                    }
+                    
+                    // Capitalize first letter of day
+                    const dayName = day.charAt(0).toUpperCase() + day.slice(1);
+                    
+                    // Check if this is today
+                    if (dayIndex === today) {
+                        dayCard.classList.add('current-day');
+                    }
+                    
+                    dayCard.innerHTML = `
+                        <div class="day-name">${dayName}</div>
+                        <div class="hours">${businessHours[day]}</div>
+                    `;
+                    
+                    hoursGrid.appendChild(dayCard);
+                });
+            }
+            
+            // Add click tracking for contact buttons
+            const contactButtons = document.querySelectorAll('.contact-btn');
+            contactButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const buttonType = this.classList.contains('btn-call') ? 'call' : 
+                                      this.classList.contains('btn-email') ? 'email' : 'whatsapp';
+                    
+                    console.log(`Contact button clicked: ${buttonType}`);
+                    
+                    // In a real app, you might send this to Google Analytics
+                    // ga('send', 'event', 'Contact', 'click', buttonType);
+                });
+            });
+            
+            // Add phone number formatting
+            const phoneLinks = document.querySelectorAll('a[href^="tel"]');
+            phoneLinks.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                // Ensure proper international format
+                if (originalHref.includes('0741495007') && !originalHref.includes('+256')) {
+                    link.setAttribute('href', 'tel:+256741495007');
+                }
+            });
+            
+            // Add current year to copyright
+            const copyrightElement = document.querySelector('.copyright p');
+            if (copyrightElement) {
+                const currentYear = new Date().getFullYear();
+                copyrightElement.innerHTML = copyrightElement.innerHTML.replace('2023', currentYear);
+            }
+            
+            // Add smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Check if we're on mobile and add tap highlight effect
+            if ('ontouchstart' in window) {
+                document.querySelectorAll('.contact-button-card, .contact-info-card, .faq-item').forEach(element => {
+                    element.style.cursor = 'pointer';
+                    element.addEventListener('touchstart', function() {
+                        this.style.opacity = '0.8';
+                    });
+                    element.addEventListener('touchend', function() {
+                        this.style.opacity = '1';
+                    });
+                });
+            }
+        });
+        
+        // WhatsApp pre-filled message function
+        function sendWhatsAppMessage() {
+            const phoneNumber = '256741495007';
+            const defaultMessage = "Hi JoyCakeys! I'm interested in ordering a cake. Can you please help me?";
+            const encodedMessage = encodeURIComponent(defaultMessage);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
