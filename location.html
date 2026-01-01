@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyCakeys Location & Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff7bac;
+            --primary-light: #ffb8d9;
+            --secondary: #6a5acd;
+            --accent: #ffd166;
+            --dark: #333333;
+            --light: #fff9fb;
+            --gray: #f5f5f5;
+            --border-radius: 12px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 30px;
+        }
+
+        .main-nav li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .main-nav li a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation - Pure CSS */
+        #mobile-menu-toggle {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1001;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+            display: block;
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-content {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links a {
+            text-decoration: none;
+            color: var(--dark);
+            padding: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding-left: 20px;
+        }
+
+        .mobile-menu-links a i {
+            width: 25px;
+            text-align: center;
+        }
+
+        .mobile-menu-contact {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+        }
+
+        .mobile-menu-contact h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .mobile-menu-contact i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        /* Location Header */
+        .location-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .location-header h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .location-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* Location Content */
+        .location-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 450px;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Interactive Map Overlay */
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .map-container:hover .map-overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .open-map-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .open-map-btn:hover {
+            background: #ff5a9c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .open-map-btn i {
+            font-size: 1.2rem;
+        }
+
+        .map-instruction {
+            color: white;
+            margin-top: 15px;
+            font-size: 1rem;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Fallback if iframe doesn't load */
+        .map-fallback {
+            width: 100%;
+            height: 100%;
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .map-fallback i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .map-fallback p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-info h2 {
+            color: var(--secondary);
+        }
+
+        .info-card {
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card h3 i {
+            color: var(--primary);
+        }
+
+        .info-card p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .info-card ul {
+            list-style: none;
+            margin-left: 10px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Order Button Section */
+        .order-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--border-radius);
+        }
+
+        .order-section h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .order-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .order-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .order-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .order-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .order-btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .order-btn-primary:hover {
+            background: #ff5a9c;
+        }
+
+        .order-btn-secondary:hover {
+            background: #5549d1;
+        }
+
+        /* Delivery Zones */
+        .delivery-section {
+            padding: 60px 0;
+            background-color: var(--gray);
+            border-radius: var(--border-radius);
+        }
+
+        .delivery-section h2 {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        .delivery-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .zone-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .zone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .zone-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .zone-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .zone-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .zone-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .zone-price {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Info */
+        .contact-info-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .contact-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .contact-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .footer-column h3:after {
+            background: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .location-header h1 {
+                font-size: 3rem;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .location-header {
+                padding: 60px 0;
+            }
+            
+            .location-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .location-header p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .order-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .order-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .delivery-zones {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-overlay {
+                opacity: 1;
+                background: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .location-header h1 {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-content {
+                width: 90%;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .zone-card {
+                padding: 20px;
+            }
+            
+            .contact-item {
+                padding: 20px;
+            }
+            
+            .open-map-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden checkbox for mobile menu -->
+    <input type="checkbox" id="mobile-menu-toggle" style="display: none;">
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="location.html" class="active">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <label for="mobile-menu-toggle" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Content -->
+    <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            <label for="mobile-menu-toggle" class="mobile-close-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+        
+        <div class="mobile-menu-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+            <a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+         
+            
+            <a href="paper2.html"><i class="fas fa-book-open"></i> Cake Care Guide</a>
+            <a href="paper3.html"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a>
+        </div>
+        
+        <div class="mobile-menu-contact">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0741495007</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 8AM - 7PM</p>
+        </div>
+    </div>
+
+    <!-- Location Header -->
+    <section class="location-header">
+        <div class="container">
+            <h1>Our Location & Delivery Service</h1>
+            <p>Find us in Kirinya, Kampala or have our delicious cakes delivered right to your doorstep!</p>
+        </div>
+    </section>
+
+    <!-- Location Content -->
+    <section class="location-content">
+        <div class="container">
+            <div class="location-grid">
+                <!-- Interactive Google Map -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.746357238045!2d32.65878567476901!3d0.35767109970714647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbf03f9729c71%3A0x1c196b3b9d976e24!2sKirinya%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1647456789012!5m2!1sen!2sus" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="JoyCakeys Location in Kirinya, Kampala">
+                    </iframe>
+                    
+                    <!-- Interactive overlay for opening Google Maps -->
+                    <div class="map-overlay">
+                        <button class="open-map-btn" id="openGoogleMapsBtn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </button>
+                        <p class="map-instruction">Click the button to open in Google Maps app</p>
+                    </div>
+                    
+                    <!-- Fallback if iframe doesn't load -->
+                    <div class="map-fallback" style="display: none;">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>JoyCakeys Bakery</h3>
+                        <p>Kirinya, Kampala, Uganda</p>
+                        <button class="open-map-btn" id="fallbackMapBtn">
+                            <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Location Information -->
+                <div class="location-info">
+                    <h2>Visit Our Bakery</h2>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                        <p><strong>JoyCakeys Bakery</strong></p>
+                        <p>Kirinya, Kampala</p>
+                        <p>Uganda</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+                        <p><strong>Monday - Saturday:</strong> 8:00 AM - 7:00 PM</p>
+                        <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+                        <p><em>We recommend ordering at least 3 Days in advance for custom cakes.</em></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
+                        <p><strong>Phone:</strong> 0741495007</p>
+                        <p><strong>Email:</strong> Joycakeys@gmail.com</p>
+                        <p><strong>WhatsApp:</strong> 0741495007</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Button Section -->
+            <div class="order-section">
+                <h2>Ready to Order?</h2>
+                <p>Order your delicious custom cake today! Choose pickup from our Kirinya location or have it delivered to your doorstep.</p>
+                
+                <div class="order-buttons">
+                    <a href="contact.html" class="order-btn order-btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Order Now
+                    </a>
+                    <a href="contact.html" class="order-btn order-btn-secondary">
+                        <i class="fas fa-phone-alt"></i> Call to Order
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Delivery Zones -->
+         
+                <div style="text-align: center; margin-top: 40px;">
+                    <p><strong>Note:</strong> Delivery fees may vary for very large or specialty cakes. Contact us for exact delivery pricing to your location.</p>
+                </div>
+            </div>
+            
+            <!-- Delivery Information -->
+            <div class="info-card" style="margin-top: 40px;">
+                <h3><i class="fas fa-shipping-fast"></i> Delivery Information</h3>
+                <p><strong>How our delivery works:</strong></p>
+                <ul>
+                    <li>Place your order at least 3 Days in advance for custom cakes</li>
+                    <li>We will contact you to confirm delivery time and address</li>
+                    <li>Cakes are carefully packaged and transported in secure containers</li>
+                    <li>Delivery personnel will handle with utmost care</li>
+                    <li>Contact-free delivery option available upon request</li>
+                    <li>Payment can be made on delivery (cash or mobile money)</li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info Section -->
+            <div class="contact-info-section">
+                <h2 style="text-align: center; margin-bottom: 50px;">Get in Touch</h2>
+                
+                <div class="contact-info-grid">
+                    <!-- Phone -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>Available during business hours</p>
+                        <a href="tel:+256741495007" class="contact-link">0741495007</a>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Send us your inquiries</p>
+                        <a href="mailto:Joycakeys@gmail.com" class="contact-link">Joycakeys@gmail.com</a>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>Quick chat for orders</p>
+                        <a href="https://wa.me/256741495007?text=Hi%20JoyCakeys!%20I'm%20interested%20in%20ordering%20a%20cake.%20Can%20you%20please%20help%20me?" class="contact-link" target="_blank">0741495007</a>
+                    </div>
+                    
+                    <!-- Visit -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <p>Pickup your order</p>
+                        <a href="https://maps.google.com/maps?q=Kirinya,Kampala,Uganda" class="contact-link" target="_blank">Kirinya, Kampala</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JoyCakeys</h3>
+                    <p>Creating beautiful, delicious custom cakes for all your special occasions since 2015.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="location.html">Location</a>
+                    <a href="contact.html">Contact Us</a>
+            </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+        
+             
+
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0741495007</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kirinya, Kampala, Uganda</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 JoyCakeys. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to open Google Maps
+        function openGoogleMaps() {
+            // Coordinates for Kirinya, Kampala, Uganda
+            const latitude = 0.3576711;
+            const longitude = 32.6609744;
+            
+            // Try to open in Google Maps app first
+            const mapsAppUrl = `comgooglemaps://?q=Kirinya,Kampala,Uganda&center=${latitude},${longitude}&zoom=15`;
+            
+            // Web URL as fallback
+            const mapsWebUrl = `https://www.google.com/maps/search/?api=1&query=Kirinya,Kampala,Uganda&query_place_id=ChIJ4T8-3yvF3RcR1xQ_h_8e9M8`;
+            
+            // Try to open in Google Maps app (if installed on iOS/Android)
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                window.location.href = mapsAppUrl;
+                
+                // If app doesn't open, redirect to web after a delay
+                setTimeout(function() {
+                    if (!document.hidden) {
+                        window.open(mapsWebUrl, '_blank');
+                    }
+                }, 2000);
+            } 
+            // For Android
+            else if (/Android/.test(navigator.userAgent)) {
+                window.location.href = mapsAppUrl;
+                
+                setTimeout(function() {
+                    window.open(mapsWebUrl, '_blank');
+                }, 2000);
+            } 
+            // For desktop browsers
+            else {
+                window.open(mapsWebUrl, '_blank');
+            }
+        }
+
+        // Function to check if iframe loaded successfully
+        function checkIframeLoad() {
+            const mapIframe = document.querySelector('.map-container iframe');
+            const mapFallback = document.querySelector('.map-fallback');
+            
+            // Check if iframe has content (simple check)
+            if (mapIframe) {
+                mapIframe.addEventListener('load', function() {
+                    console.log('Map iframe loaded successfully');
+                });
+                
+                mapIframe.addEventListener('error', function() {
+                    console.log('Map iframe failed to load');
+                    if (mapFallback) {
+                        mapFallback.style.display = 'flex';
+                    }
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up button click handlers
+            const openMapBtn = document.getElementById('openGoogleMapsBtn');
+            const fallbackMapBtn = document.getElementById('fallbackMapBtn');
+            
+            if (openMapBtn) {
+                openMapBtn.addEventListener('click', openGoogleMaps);
+            }
+            
+            if (fallbackMapBtn) {
+                fallbackMapBtn.addEventListener('click', openGoogleMaps);
+            }
+            
+            // Also make the entire map container clickable (optional)
+            const mapContainer = document.querySelector('.map-container');
+            if (mapContainer) {
+                mapContainer.addEventListener('click', function(e) {
+                    // Only trigger if the click wasn't on the button itself
+                    if (e.target === mapContainer || e.target === mapContainer.querySelector('iframe')) {
+                        openGoogleMaps();
+                    }
+                });
+            }
+            
+            // Check if iframe loads properly
+            setTimeout(checkIframeLoad, 3000);
+            
+            // Mobile menu toggle with JavaScript enhancement
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuContent = document.querySelector('.mobile-menu-content');
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.checked = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
