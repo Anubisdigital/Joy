@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyCakeys Gallery - Cake Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff7bac;
+            --primary-light: #ffb8d9;
+            --secondary: #6a5acd;
+            --accent: #ffd166;
+            --dark: #333333;
+            --light: #fff9fb;
+            --gray: #f5f5f5;
+            --border-radius: 12px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+  .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }.gallery-header h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .gallery-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+  .gallery-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 30px;
+        }
+
+        .main-nav li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav li a:hover {
+            color: var(--primary);
+        }
+
+        .main-nav li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .main-nav li a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation - Pure CSS */
+        #mobile-menu-toggle {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1001;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+            display: block;
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-menu-content {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-links a {
+            text-decoration: none;
+            color: var(--dark);
+            padding: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding-left: 20px;
+        }
+
+        .mobile-menu-links a i {
+            width: 25px;
+            text-align: center;
+        }
+
+        .mobile-menu-contact {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+        }
+
+        .mobile-menu-contact h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .mobile-menu-contact i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        /* Gallery Header */
+        .gallery-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .gallery-header h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .gallery-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .category-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: white;
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Gallery Categories */
+        .gallery-categories {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray);
+        }
+
+        .category-header h2 {
+            color: var(--secondary);
+        }
+
+        .cakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .cake-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .cake-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cake-img {
+            height: 250px;
+            width: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cake-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cake-card:hover .cake-img img {
+            transform: scale(1.05);
+        }
+
+        .cake-price {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        .cake-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Image Lightbox System - Pure CSS */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox:target {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 2001;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: var(--secondary);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-info {
+            padding: 15px;
+            background: white;
+            text-align: center;
+        }
+
+        .lightbox-price {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Unavailable Category */
+        .unavailable-category {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--gray);
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+        }
+
+        .unavailable-category i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .unavailable-category h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .unavailable-category p {
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .email-btn {
+            background: #d44638;
+            color: white;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .footer-column h3:after {
+            background: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-header h1 {
+                font-size: 3rem;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cakes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .gallery-header {
+                padding: 60px 0;
+            }
+            
+            .gallery-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-header p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .category-filter {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .cakes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .cake-img {
+                height: 220px;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-header h1 {
+                font-size: 2rem;
+            }
+            
+            .cakes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .cake-img {
+                height: 180px;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-content {
+                width: 90%;
+            }
+            
+            .category-filter {
+                justify-content: center;
+            }
+            
+            .category-btn {
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden checkbox for mobile menu -->
+    <input type="checkbox" id="mobile-menu-toggle" style="display: none;">
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <label for="mobile-menu-toggle" class="mobile-menu-btn">
+             
+            </label>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Content -->
+    <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="JoyCakeys Logo" class="logo-img">
+                <div class="logo-text">JoyCakeys</div>
+            </div>
+            <label for="mobile-menu-toggle" class="mobile-close-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+        
+        <div class="mobile-menu-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+            <a href="location.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+           
+            <a
+        </div>
+        
+        <div class="mobile-menu-contact">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0741495007</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 8AM - 7PM</p>
+        </div>
+    </div>
+
+    <!-- Gallery Header -->
+    <section class="gallery-header"> 
+        <div class="container">
+            <h1>Our Cake Gallery</h1>
+            <p>Browse through our extensive collection of delicious custom cakes for every occasion. All cakes are sold by kilogram (KG) with prices starting from 60,000 UGX per KG.</p>
+            
+            <div class="pricing-explanation">
+                <h3><i class="fas fa-info-circle"></i> How Our Pricing Works</h3>
+                <ul>
+                    <li><i class="fas fa-weight-scale"></i> <strong>Sold by Kilogram (KG):</strong> All cakes are priced per KG</li>
+                    <li><i class="fas fa-tag"></i> <strong>Base Price:</strong> Starting from 60,000 UGX </li>
+                    <li><i class="fas fa-ice-cream"></i> <strong>Flavor Adjustment:</strong> Price varies based on selected flavor</li>
+                    <li><i class="fas fa-palette"></i> <strong>Design Complexity:</strong> Complex designs may increase the price</li>
+                    <li><i class="fas fa-quote-right"></i> <strong>Custom Messages:</strong> Personalized text included at no extra cost</li>
+                </ul>
+            </div>
+            
+        <div class="container">
+            <h1>Our Cake Gallery</h1>
+            <p>Browse through our extensive collection of delicious custom cakes for every occasion. Click on any cake to view it larger.</p>
+            
+            <div class="category-filter">
+                <a href="#wedding" class="category-btn">Wedding</a>
+                <a href="#birthday" class="category-btn">Birthday</a>
+                <a href="#forkids" class="category-btn">For Kids</a>
+                <a href="#theme" class="category-btn">Theme-Based</a>
+                <a href="#graduation" class="category-btn">Graduation</a>
+                <a href="#photo" class="category-btn">Photo & Printed</a>
+                <a href="#anniversary" class="category-btn">Anniversary</a>
+                <a href="#babyshower" class="category-btn">Baby Shower</a>
+                <a href="#corporate" class="category-btn">Corporate</a>
+                <a href="#festival" class="category-btn">Festival</a>
+                <a href="#name" class="category-btn">Name & Message</a><a href="#other" class="category-btn">Other</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="gallery-categories">
+        <div class="container">
+            <!-- Wedding Cakes -->
+            <div class="category-section" id="wedding">
+                <div class="category-header">
+                    <h2>Wedding Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Wedding Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#wedding1" class="cake-img">
+                            <img src="wedding1.jpg" alt="Wedding Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Wedding Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#wedding2" class="cake-img">
+                            <img src="wedding2.jpg" alt="Wedding Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Wedding Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#wedding3" class="cake-img">
+                            <img src="wedding3.jpg" alt="Wedding Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Wedding Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#wedding4" class="cake-img">
+                            <img src="wedding4.jpg" alt="Wedding Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Wedding Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#wedding5" class="cake-img">
+                            <img src="wedding5.jpg" alt="Wedding Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Birthday Cakes -->
+            <div class="category-section" id="birthday">
+                <div class="category-header">
+                    <h2>Birthday Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Birthday Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#birthday1" class="cake-img">
+                            <img src="birthday1.jpg" alt="Birthday Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Birthday Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#birthday2" class="cake-img">
+                            <img src="birthday2.jpg" alt="Birthday Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Birthday Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#birthday3" class="cake-img">
+                            <img src="birthday3.jpg" alt="Birthday Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Birthday Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#birthday4" class="cake-img">
+                            <img src="birthday4.jpg" alt="Birthday Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Birthday Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#birthday5" class="cake-img">
+                            <img src="birthday5.jpg" alt="Birthday Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- For Kids Cakes -->
+            <div class="category-section" id="forkids">
+                <div class="category-header">
+                    <h2>For Kids Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- For Kids Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#forkids1" class="cake-img">
+                            <img src="forkids1.jpg" alt="Kids Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- For Kids Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#forkids2" class="cake-img">
+                            <img src="forkids2.jpg" alt="Kids Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- For Kids Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#forkids3" class="cake-img">
+                            <img src="forkids3.jpg" alt="Kids Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- For Kids Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#forkids4" class="cake-img">
+                            <img src="forkids4.jpg" alt="Kids Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- For Kids Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#forkids5" class="cake-img">
+                            <img src="forkids5.jpg" alt="Kids Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Theme-Based Cakes -->
+            <div class="category-section" id="theme">
+                <div class="category-header">
+                    <h2>Theme-Based Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Theme Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#theme1" class="cake-img">
+                            <img src="theme1.jpg" alt="Theme Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#theme2" class="cake-img">
+                            <img src="theme2.jpg" alt="Theme Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#theme3" class="cake-img">
+                            <img src="theme3.jpg" alt="Theme Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#theme4" class="cake-img">
+                            <img src="theme4.jpg" alt="Theme Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#theme5" class="cake-img">
+                            <img src="theme5.jpg" alt="Theme Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graduation Cakes -->
+            <div class="category-section" id="graduation">
+                <div class="category-header">
+                    <h2>Graduation Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Graduation Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#graduation1" class="cake-img">
+                            <img src="graduation1.jpg" alt="Graduation Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Graduation Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#graduation2" class="cake-img">
+                            <img src="graduation2.jpg" alt="Graduation Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Graduation Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#graduation3" class="cake-img">
+                            <img src="graduation3.jpg" alt="Graduation Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Graduation Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#graduation4" class="cake-img">
+                            <img src="graduation4.jpg" alt="Graduation Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Graduation Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#graduation5" class="cake-img">
+                            <img src="graduation5.jpg" alt="Graduation Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photo & Printed Cakes -->
+            <div class="category-section" id="photo">
+                <div class="category-header">
+                    <h2>Photo & Printed Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Photo Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#photo1" class="cake-img">
+                            <img src="photo1.jpg" alt="Photo Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#photo2" class="cake-img">
+                            <img src="photo2.jpg" alt="Photo Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#photo3" class="cake-img">
+                            <img src="photo3.jpg" alt="Photo Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#photo4" class="cake-img">
+                            <img src="photo4.jpg" alt="Photo Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#photo5" class="cake-img">
+                            <img src="photo5.jpg" alt="Photo Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Name & Message Cakes -->
+            <div class="category-section" id="name">
+                <div class="category-header">
+                    <h2>Name & Message Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Name Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#name1" class="cake-img">
+                            <img src="name1.jpg" alt="Name & Message Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Name Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#name2" class="cake-img">
+                            <img src="name2.jpg" alt="Name & Message Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Name Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#name3" class="cake-img">
+                            <img src="name3.jpg" alt="Name & Message Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Name Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#name4" class="cake-img">
+                            <img src="name4.jpg" alt="Name & Message Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Name Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#name5" class="cake-img">
+                            <img src="name5.jpg" alt="Name & Message Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Festival & Holiday Cakes -->
+            <div class="category-section" id="festival">
+                <div class="category-header">
+                    <h2>Festival & Holiday Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Festival Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#festival1" class="cake-img">
+                            <img src="festival1.jpg" alt="Festival & Holiday Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Festival Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#festival2" class="cake-img">
+                            <img src="festival2.jpg" alt="Festival & Holiday Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Festival Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#festival3" class="cake-img">
+                            <img src="festival3.jpg" alt="Festival & Holiday Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Festival Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#festival4" class="cake-img">
+                            <img src="festival4.jpg" alt="Festival & Holiday Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Festival Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#festival5" class="cake-img">
+                            <img src="festival5.jpg" alt="Festival & Holiday Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Corporate / Office Cakes -->
+            <div class="category-section" id="corporate">
+                <div class="category-header">
+                    <h2>Corporate / Office Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Corporate Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#corporate1" class="cake-img">
+                            <img src="corporate1.jpg" alt="Corporate / Office Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#corporate2" class="cake-img">
+                            <img src="corporate2.jpg" alt="Corporate / Office Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#corporate3" class="cake-img">
+                            <img src="corporate3.jpg" alt="Corporate / Office Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#corporate4" class="cake-img">
+                            <img src="corporate4.jpg" alt="Corporate / Office Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#corporate5" class="cake-img">
+                            <img src="corporate5.jpg" alt="Corporate / Office Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Baby Shower Cakes -->
+            <div class="category-section" id="babyshower">
+                <div class="category-header">
+                    <h2>Baby Shower Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Baby Shower Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#babyshower1" class="cake-img">
+                            <img src="babyshower1.jpg" alt="Baby Shower Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Baby Shower Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#babyshower2" class="cake-img">
+                            <img src="babyshower2.jpg" alt="Baby Shower Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Baby Shower Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#babyshower3" class="cake-img">
+                            <img src="babyshower3.jpg" alt="Baby Shower Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Baby Shower Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#babyshower4" class="cake-img">
+                            <img src="babyshower4.jpg" alt="Baby Shower Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Baby Shower Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#babyshower5" class="cake-img">
+                            <img src="babyshower5.jpg" alt="Baby Shower Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anniversary Cakes -->
+            <div class="category-section" id="anniversary">
+                <div class="category-header">
+                    <h2>Anniversary Cakes</h2>
+                </div>
+                
+                <div class="cakes-grid">
+                    <!-- Anniversary Cake 1 -->
+                    <div class="cake-card">
+                        <a href="#anniversary1" class="cake-img">
+                            <img src="anniversary1.jpg" alt="Anniversary Cake 1">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Anniversary Cake 2 -->
+                    <div class="cake-card">
+                        <a href="#anniversary2" class="cake-img">
+                            <img src="anniversary2.jpg" alt="Anniversary Cake 2">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Anniversary Cake 3 -->
+                    <div class="cake-card">
+                        <a href="#anniversary3" class="cake-img">
+                            <img src="anniversary3.jpg" alt="Anniversary Cake 3">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Anniversary Cake 4 -->
+                    <div class="cake-card">
+                        <a href="#anniversary4" class="cake-img">
+                            <img src="anniversary4.jpg" alt="Anniversary Cake 4">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Anniversary Cake 5 -->
+                    <div class="cake-card">
+                        <a href="#anniversary5" class="cake-img">
+                            <img src="anniversary5.jpg" alt="Anniversary Cake 5">
+                            <div class="cake-price"> UGX</div>
+                        </a>
+                        <div class="cake-info">
+                            <a href="contact.html" class="order-btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Other Cakes -->
+<div class="category-section" id="other">
+    <div class="category-header">
+        <h2>Other Cakes</h2>
+    </div>
+    
+    <div class="cakes-grid">
+        <!-- Other Cake 1 -->
+        <div class="cake-card">
+            <a href="#other1" class="cake-img">
+                <img src="other1.jpg" alt="Other Cake 1">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+        
+        <!-- Other Cake 2 -->
+        <div class="cake-card">
+            <a href="#other2" class="cake-img">
+                <img src="other2.jpg" alt="Other Cake 2">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+        
+        <!-- Other Cake 3 -->
+        <div class="cake-card">
+            <a href="#other3" class="cake-img">
+                <img src="other3.jpg" alt="Other Cake 3">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+        
+        <!-- Other Cake 4 -->
+        <div class="cake-card">
+            <a href="#other4" class="cake-img">
+                <img src="other4.jpg" alt="Other Cake 4">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+        
+        <!-- Other Cake 5 -->
+        <div class="cake-card">
+            <a href="#other5" class="cake-img">
+                <img src="other5.jpg" alt="Other Cake 5">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+        
+                <div class="cake-card">
+<a href="#other6" class="cake-img">
+                <img src="other6.jpg" alt="Other Cake 1">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+                <div class="cake-card">
+<a href="#other7" class="cake-img">
+                <img src="other7.jpg" alt="Other Cake 7">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>            <div class="cake-card">
+<a href="#other8" class="cake-img">
+                <img src="other8.jpg" alt="Other Cake 8">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div><div class="cake-card">
+<a href="#other9" class="cake-img">
+                <img src="other9.jpg" alt="Other Cake 9">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div><div class="cake-card">
+<a href="#other10" class="cake-img">
+                <img src="other10.jpg" alt="Other Cake 10">
+                <div class="cake-price"> UGX</div>
+            </a>
+            <div class="cake-info">
+                <a href="contact.html" class="order-btn">Order Now</a>
+            </div>
+        </div>
+</div>
+       </div>
+    </section>
+
+    <!-- Lightboxes for each cake -->
+    <!-- Wedding Lightboxes --><!-- Other Cakes Lightboxes -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div id="other1" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other1.jpg" alt="Other Cake 1" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+<div id="other2" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other2.jpg" alt="Other Cake 2" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+<div id="other3" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other3.jpg" alt="Other Cake 3" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+<div id="other4" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other4.jpg" alt="Other Cake 4" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+<div id="other5" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other5.jpg" alt="Other Cake 5" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="other6" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other6.jpg" alt="Other Cake 1" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+<div id="other7" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other7.jpg" alt="Other Cake 7" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+    
+<div id="other6" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other6.jpg" alt="Other Cake 1" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="other7" class="lightbox">
+    <div class="lightbox-content">
+        <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+        <img src="other8.jpg" alt="Other Cake 8" class="lightbox-img">
+        <div class="lightbox-info">
+            <div class="lightbox-price"> UGX</div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div id="wedding1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="wedding1.jpg" alt="Wedding Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wedding2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="wedding2.jpg" alt="Wedding Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wedding3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="wedding3.jpg" alt="Wedding Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wedding4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="wedding4.jpg" alt="Wedding Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wedding5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="wedding5.jpg" alt="Wedding Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Birthday Lightboxes -->
+    <div id="birthday1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="birthday1.jpg" alt="Birthday Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="birthday2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="birthday2.jpg" alt="Birthday Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="birthday3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="birthday3.jpg" alt="Birthday Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="birthday4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="birthday4.jpg" alt="Birthday Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="birthday5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="birthday5.jpg" alt="Birthday Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- For Kids Lightboxes -->
+    <div id="forkids1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="forkids1.jpg" alt="Kids Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="forkids2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="forkids2.jpg" alt="Kids Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="forkids3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="forkids3.jpg" alt="Kids Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="forkids4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="forkids4.jpg" alt="Kids Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="forkids5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="forkids5.jpg" alt="Kids Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Theme Lightboxes -->
+    <div id="theme1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="theme1.jpg" alt="Theme Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="theme2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="theme2.jpg" alt="Theme Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="theme3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="theme3.jpg" alt="Theme Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="theme4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="theme4.jpg" alt="Theme Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="theme5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="theme5.jpg" alt="Theme Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Graduation Lightboxes -->
+    <div id="graduation1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="graduation1.jpg" alt="Graduation Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graduation2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="graduation2.jpg" alt="Graduation Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graduation3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="graduation3.jpg" alt="Graduation Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graduation4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="graduation4.jpg" alt="Graduation Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="graduation5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="graduation5.jpg" alt="Graduation Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Photo Lightboxes -->
+    <div id="photo1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="photo1.jpg" alt="Photo Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photo2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="photo2.jpg" alt="Photo Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photo3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="photo3.jpg" alt="Photo Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photo4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="photo4.jpg" alt="Photo Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photo5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="photo5.jpg" alt="Photo Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Name & Message Lightboxes -->
+    <div id="name1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="name1.jpg" alt="Name & Message Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="name2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="name2.jpg" alt="Name & Message Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="name3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="name3.jpg" alt="Name & Message Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="name4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="name4.jpg" alt="Name & Message Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="name5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="name5.jpg" alt="Name & Message Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Festival Lightboxes -->
+    <div id="festival1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="festival1.jpg" alt="Festival & Holiday Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="festival2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="festival2.jpg" alt="Festival & Holiday Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="festival3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="festival3.jpg" alt="Festival & Holiday Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="festival4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="festival4.jpg" alt="Festival & Holiday Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="festival5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="festival5.jpg" alt="Festival & Holiday Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Corporate Lightboxes -->
+    <div id="corporate1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="corporate1.jpg" alt="Corporate / Office Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="corporate2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="corporate2.jpg" alt="Corporate / Office Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="corporate3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="corporate3.jpg" alt="Corporate / Office Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="corporate4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="corporate4.jpg" alt="Corporate / Office Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="corporate5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="corporate5.jpg" alt="Corporate / Office Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Baby Shower Lightboxes -->
+    <div id="babyshower1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="babyshower1.jpg" alt="Baby Shower Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="babyshower2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="babyshower2.jpg" alt="Baby Shower Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="babyshower3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="babyshower3.jpg" alt="Baby Shower Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="babyshower4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="babyshower4.jpg" alt="Baby Shower Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="babyshower5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="babyshower5.jpg" alt="Baby Shower Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Anniversary Lightboxes -->
+    <div id="anniversary1" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="anniversary1.jpg" alt="Anniversary Cake 1" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="anniversary2" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="anniversary2.jpg" alt="Anniversary Cake 2" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="anniversary3" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="anniversary3.jpg" alt="Anniversary Cake 3" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="anniversary4" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="anniversary4.jpg" alt="Anniversary Cake 4" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="anniversary5" class="lightbox">
+        <div class="lightbox-content">
+            <a href="#" class="lightbox-close"><i class="fas fa-times"></i></a>
+            <img src="anniversary5.jpg" alt="Anniversary Cake 5" class="lightbox-img">
+            <div class="lightbox-info">
+                <div class="lightbox-price"> UGX</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JoyCakeys</h3>
+                    <p>Creating beautiful, delicious custom cakes for all your special occasions since 2015.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="location.html">Location</a>
+                    <a href="contact.html">Contact Us</a>
+                
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+           
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> Joycakeys@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0741495007</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 JoyCakeys. </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
